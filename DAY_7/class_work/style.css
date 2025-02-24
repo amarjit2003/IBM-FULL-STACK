@@ -1,0 +1,37 @@
+#parent {
+    width: 100%;
+    height: 100vh;
+    border: 1px solid gray;
+    background-color: aquamarine;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+#parent > div::nth :nth-child(3){
+     background-color: blue;
+     grid-area: 1/2/1/2;
+}
+
+
+
+#parent > div::nth :nth-child(1){
+    grid-area: 1/1/2/3;
+    background-color: brown;
+}
+
+#parent>div{ 
+    width: 200px;
+    height:200px ;
+    border: 1px solid green;
+    background-color: bisque;
+    margin: 10px;
+}
+
+.root{
+    --primary-color: blue ;
+    --secondary-color: yellow ;
+    --font-color: green ;
+
+
+}
+

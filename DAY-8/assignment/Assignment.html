@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keyboard & Calculator</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 20px;
+      background: #222;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+
+    /* ----------------- */
+    /* Laptop Keyboard  */
+    /* ----------------- */
+    .laptop-container {
+      background: #333;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    /* Wrapper to place main keyboard and numeric keypad side by side */
+    .keyboard-wrapper {
+      display: flex;
+      gap: 20px;
+    }
+    /* Main keyboard layout using grid */
+    .keyboard {
+      display: grid;
+      grid-template-columns: repeat(14, 40px);
+      gap: 5px;
+    }
+    /* Numeric keypad layout using grid */
+    .numeric-keypad {
+      display: grid;
+      grid-template-columns: repeat(3, 40px);
+      gap: 5px;
+    }
+    /* Key styles common to both sections */
+    .key {
+      background: #444;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 5px;
+      position: relative;
+      transition: transform 0.2s ease, background 0.2s ease;
+      cursor: pointer;
+    }
+    /* Pseudo element showing a label (using data-key attribute) */
+    .key::after {
+      content: attr(data-key);
+      position: absolute;
+      bottom: -18px;
+      font-size: 10px;
+      opacity: 0.5;
+    }
+    /* Hover effect with scale animation and a pulse effect */
+    .key:hover {
+      background: #666;
+      transform: scale(1.1);
+      animation: pulse 0.5s ease-in-out;
+    }
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 rgba(255, 255, 255, 0.7);
+      }
+      50% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+      }
+      100% {
+        box-shadow: 0 0 0 rgba(255, 255, 255, 0.7);
+      }
+    }
+
+    /* ----------------- */
+    /* Calculator Styles */
+    /* ----------------- */
+    .calculator {
+      background: #444;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .calc-display {
+      background: #222;
+      width: 180px;
+      height: 40px;
+      text-align: right;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+    .calc-buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 40px);
+      gap: 5px;
+    }
+    .calc-btn {
+      background: #555;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 5px;
+      position: relative;
+      transition: transform 0.2s ease, background 0.2s ease;
+      cursor: pointer;
+    }
+    /* Pseudo element for an extra glow effect on calculator keys */
+    .calc-btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.1);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+    .calc-btn:hover {
+      background: #777;
+      transform: scale(1.1);
+    }
+    .calc-btn:hover::before {
+      opacity: 1;
+      animation: glow 0.5s ease-in-out;
+    }
+    @keyframes glow {
+      0% {
+        box-shadow: 0 0 0 rgba(255, 255, 255, 0.5);
+      }
+      50% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      }
+      100% {
+        box-shadow: 0 0 0 rgba(255, 255, 255, 0.5);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Laptop Keyboard with Side Numeric Keypad -->
+  <div class="laptop-container">
+    <h2>Laptop Keyboard</h2>
+    <div class="keyboard-wrapper">
+      <!-- Main Keyboard -->
+      <div class="keyboard">
+        <!-- Top row: Function keys -->
+        <div class="key" data-key="Esc">Esc</div>
+        <div class="key" data-key="F1">F1</div>
+        <div class="key" data-key="F2">F2</div>
+        <div class="key" data-key="F3">F3</div>
+        <div class="key" data-key="F4">F4</div>
+        <div class="key" data-key="F5">F5</div>
+        <div class="key" data-key="F6">F6</div>
+        <div class="key" data-key="F7">F7</div>
+        <div class="key" data-key="F8">F8</div>
+        <div class="key" data-key="F9">F9</div>
+        <div class="key" data-key="F10">F10</div>
+        <div class="key" data-key="F11">F11</div>
+        <div class="key" data-key="F12">F12</div>
+        <div class="key" data-key="PrtSc">PrtSc</div>
+        <!-- Second row: Tilde & Number keys -->
+        <div class="key" data-key="~">~</div>
+        <div class="key" data-key="1">1</div>
+        <div class="key" data-key="2">2</div>
+        <div class="key" data-key="3">3</div>
+        <div class="key" data-key="4">4</div>
+        <div class="key" data-key="5">5</div>
+        <div class="key" data-key="6">6</div>
+        <div class="key" data-key="7">7</div>
+        <div class="key" data-key="8">8</div>
+        <div class="key" data-key="9">9</div>
+        <div class="key" data-key="0">0</div>
+        <div class="key" data-key="-">-</div>
+        <div class="key" data-key="=">=</div>
+        <div class="key" data-key="Bksp">←</div>
+        <!-- Additional rows (QWERTY, etc.) can be added here as needed -->
+      </div>
+      <!-- Side Numeric Keypad -->
+      <div class="numeric-keypad">
+        <div class="key" data-key="Num">Num</div>
+        <div class="key" data-key="/">/</div>
+        <div class="key" data-key="*">*</div>
+        <div class="key" data-key="7">7</div>
+        <div class="key" data-key="8">8</div>
+        <div class="key" data-key="9">9</div>
+        <div class="key" data-key="-">-</div>
+        <div class="key" data-key="4">4</div>
+        <div class="key" data-key="5">5</div>
+        <div class="key" data-key="6">6</div>
+        <div class="key" data-key="+">+</div>
+        <div class="key" data-key="1">1</div>
+        <div class="key" data-key="2">2</div>
+        <div class="key" data-key="3">3</div>
+        <div class="key" data-key="Enter">Ent</div>
+        <!-- The "0" key spans two columns -->
+        <div class="key" data-key="0" style="grid-column: span 2;">0</div>
+        <div class="key" data-key=".">.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Calculator -->
+  <div class="calculator">
+    <h2>Calculator</h2>
+    <div class="calc-display">0</div>
+    <div class="calc-buttons">
+      <div class="calc-btn">7</div>
+      <div class="calc-btn">8</div>
+      <div class="calc-btn">9</div>
+      <div class="calc-btn">/</div>
+      <div class="calc-btn">4</div>
+      <div class="calc-btn">5</div>
+      <div class="calc-btn">6</div>
+      <div class="calc-btn">*</div>
+      <div class="calc-btn">1</div>
+      <div class="calc-btn">2</div>
+      <div class="calc-btn">3</div>
+      <div class="calc-btn">-</div>
+      <div class="calc-btn">0</div>
+      <div class="calc-btn">.</div>
+      <div class="calc-btn">=</div>
+      <div class="calc-btn">+</div>
+    </div>
+  </div>
+</body>
+</html>
